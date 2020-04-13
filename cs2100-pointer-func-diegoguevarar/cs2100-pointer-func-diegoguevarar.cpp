@@ -8,20 +8,26 @@ void * _bubblesort_(void* _array_, void(*_puntero_)(void*, int _i, int _k), int 
 	return _array_;
 }
 
+template <typename T>
+void _b_all_(T* _vector_, int _i, int _k) {
+	if (_vector_[_k] < _vector_[_i]) 
+		std::swap(_vector_[_k], _vector_[_i]);
+}
+
 void  _b_int_(void* _vector_, int _i, int _k) {
-	// TODO: QUE COSA PONGO AQUI?
+	_b_all_((int*) _vector_, _i, _k);
 }
 
 void  _b_float_(void* _vector_, int _i, int _k) {
-	// TODO: QUE COSA PONGO AQUI?
+	_b_all_((float*) _vector_, _i, _k);
 }
 
 void  _b_double_(void* _vector_, int _i, int _k) {
-	// TODO: QUE COSA PONGO AQUI?
+	_b_all_((double*) _vector_, _i, _k);
 }
 
 void  _b_char_(void* _vector_, int _i, int _k) {
-	// TODO: QUE COSA PONGO AQUI?
+	_b_all_((char*) _vector_, _i, _k);
 }
 
 template <typename T>
@@ -37,16 +43,16 @@ int main() {
 	double _array_3[5] = { 3.0, 8.0, 2.0, 4.0, 15.0 };
 	char _array_4[6] = { 'k', 'a', 'r', 'l', 'o', 's' };
 
-//	_bubblesort_(_array_1, _b_int_, 5);
+	_bubblesort_(_array_1, _b_int_, 5);
 	print(_array_1, 5);
 
-//	_bubblesort_(_array_2, _b_float_, 5);
+	_bubblesort_(_array_2, _b_float_, 5);
 	print(_array_2, 5);
 
-//	_bubblesort_(_array_3, _b_double_, 5);
+	_bubblesort_(_array_3, _b_double_, 5);
 	print(_array_3, 5);
 
-//	_bubblesort_(_array_4, _b_char_, 6);
+	_bubblesort_(_array_4, _b_char_, 6);
 	print(_array_4, 6);
 
 	return 0;
